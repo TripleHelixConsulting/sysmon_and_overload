@@ -31,9 +31,9 @@ UNAME_S := $(shell uname -s)
 
 CXXFLAGS = -std=c++14 -pthread -I$(IMGUI_DIR) -I$(IMGUI_DIR)/backends -I$(IMGUI_DIR)/include -I$(TP_DIR) -I$(ENDLESS_TH_M_DIR)
 CXXFLAGS += -g -Wall -Wformat
-LIBS += -lGL `pkg-config --static --libs glfw3`
+LIBS += -Bstatic -lGL -lglfw --verbose
 
-CXXFLAGS += `pkg-config --cflags glfw3`
+# CXXFLAGS += `pkg-config --cflags glfw3`
 CFLAGS = $(CXXFLAGS)
 
 ##---------------------------------------------------------------------
