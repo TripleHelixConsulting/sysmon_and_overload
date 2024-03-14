@@ -340,9 +340,9 @@ int imguiTh(MessageCntrl_s& msgCtl)
                number numPiCalcTasks
                button triggerPiTasks
                */
-               ImGui::InputInt("allocMBytes", &allocMBytes, 1, ImGuiInputTextFlags_EnterReturnsTrue);
-               ImGui::InputInt("endlessCalcThreads", &endlessCalcThreads, 1, ImGuiInputTextFlags_EnterReturnsTrue);
-               ImGui::InputInt("numPiCalcTasks", &numPiCalcTasks, 100, ImGuiInputTextFlags_EnterReturnsTrue);
+               ImGui::InputIntPositive("allocMBytes", &allocMBytes, 1, ImGuiInputTextFlags_EnterReturnsTrue);
+               ImGui::InputIntPositive("endlessCalcThreads", &endlessCalcThreads, 1, ImGuiInputTextFlags_EnterReturnsTrue);
+               ImGui::InputIntPositive("numPiCalcTasks", &numPiCalcTasks, 100, ImGuiInputTextFlags_EnterReturnsTrue);
                
                if (ImGui::Button("triggerPiTasks")) {
                     triggerPiTasks = true;

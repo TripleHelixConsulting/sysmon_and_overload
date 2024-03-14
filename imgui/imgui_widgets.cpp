@@ -3586,6 +3586,12 @@ bool ImGui::InputInt(const char* label, int* v, int step, int step_fast, ImGuiIn
     return InputScalar(label, ImGuiDataType_S32, (void*)v, (void*)(step > 0 ? &step : NULL), (void*)(step_fast > 0 ? &step_fast : NULL), format, flags);
 }
 
+bool ImGui::InputIntPositive(const char* label, int* v, int step, int step_fast, ImGuiInputTextFlags flags) {
+    bool value_changed = InputInt(label, v, step, step_fast, flags);
+    if (*v < 0) *v = 0; // Ensure non-negative value
+    return value_changed;
+}
+
 bool ImGui::InputInt2(const char* label, int v[2], ImGuiInputTextFlags flags)
 {
     return InputScalarN(label, ImGuiDataType_S32, v, 2, NULL, NULL, "%d", flags);
